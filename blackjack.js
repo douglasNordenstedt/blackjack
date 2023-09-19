@@ -18,16 +18,45 @@ return([färg[y], valör[x], cardscore])
 };
 
 
+
 let kortinfo = [];
+let kortinfox = [];
+
+//spelarens första kort
 kortinfo.push(randomCard());
-
-let playerscore = kortinfo[0][2];
-console.log(`${kortinfo[0][0]} ${kortinfo[0][1]}`);
-console.log(`playerscore: ${playerscore}`);
-let enemyscore = 0;
+kortinfox.push(randomCard());
 
 
+let playerscore = ((kortinfo[0][2]) + (kortinfox[0][2]));
+//console.log(`dina kort är ${kortinfo[0][0]} ${kortinfo[0][1]} och ${kortinfox[0][0]} ${kortinfox[0][1]}`);
+//console.log(`din poäng är ${playerscore}`);
+
+kortinfo = [];
+kortinfox = [];
+
+//motståndarens första kort
+kortinfo.push(randomCard());
+kortinfox.push(randomCard());
+let enemyscore = ((kortinfo[0][2]) + (kortinfox[0][2]));
+//console.log(`motståndarens kort är ${kortinfo[0][0]} ${kortinfo[0][1]} och ${kortinfox[0][0]} ${kortinfox[0][1]}`);
+//console.log(`motståndarens poäng är ${enemyscore}`);
 
 
+let choice = prompt(
+    `dina kort är ${kortinfo[0][0]} ${kortinfo[0][1]} och ${kortinfox[0][0]} ${kortinfox[0][1]}
+din poäng är ${playerscore}
+
+motståndarens kort är ${kortinfo[0][0]} ${kortinfo[0][1]} och ${kortinfox[0][0]} ${kortinfox[0][1]}
+motståndarens poäng är ${enemyscore}
+
+hit or stand? (h/s)`
+)
 
 
+if(choice = h){
+
+}
+
+if(choice = s){
+
+}
