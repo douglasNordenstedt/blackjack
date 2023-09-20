@@ -2,3 +2,25 @@ function getRandomInt(max)
 {
     return Math.floor(Math.random()*max)
 }
+
+
+let acechoice = "1";
+if(kortinfo[0][1] == "A")
+{
+    acechoice = prompt("ditt första kort är ett A. vad ska det vara värt? (1/11)")
+   
+    if(acechoice == "11"){
+        kortinfo[0][2] += 10;
+    };
+    acechoice = "1";
+};
+
+if(kortinfox[0][1] == "A")
+{
+    acechoice = prompt("ditt andra kort är ett A. vad ska det vara värt? (1/11)")
+    if(acechoice == "11")
+    {
+        kortinfox[0][2] += 10;
+    }
+    acechoice = "1";
+};
