@@ -84,14 +84,15 @@ if(enemyacesinhand>0 && enemyscore>21){
     enemyacesinhand -= 1;
     };
 
-kortinfo = [];
-kortinfox = [];
+    kortinfo = [];
+    kortinfox = [];
 
 //console.log(`motståndarens kort är ${kortinfo[0][0]} ${kortinfo[0][1]} och ${kortinfox[0][0]} ${kortinfox[0][1]}`);
 //console.log(`motståndarens poäng är ${enemyscore}`);
 
-
-let choice = prompt(
+let choice = "h";
+while(choice == "h"){
+choice = prompt(
     `dina kort är ${playercard} och ${playercardx}
 din poäng är ${playerscore}
 
@@ -101,11 +102,43 @@ motståndarens poäng är ${enemyscore}
 hit or stand? (h/s)`
 )
 
+if(choice != "h"){
+    break;
+}
 
-if(choice = h){
+kortinfo.push(randomCard());
+playerscore += (kortinfo[0][2]);
+kortinfo = [];
+
+if(playerscore == 21){
+    alert(`du vann(21 poäng)`);
+};
+
+if(playerscore>21){
+    alert(`bust (${playerscore} poäng)`);
+};
+
 
 }
 
-if(choice = s){
 
+
+
+while(enemyscore<17){
+    kortinfo.push(randomCard());
+    enemyscore += (kortinfo[0][2]);
+    kortinfo = [];
+}
+
+if(enemyscore>21){
+    alert(`dealer busted (${enemyscore} poäng), du vann`);
+if (enemyscore>playerscore){
+    alert(`dealer vann med ${enemyscore} vs ${playerscore} poäng)`)
+}
+if (playerscore>enemyscore){
+    alert(`du vann med ${playerscore} vs ${enemyscore} poäng`)
+}
+if (playerscore==enemyscore){
+    alert(`lika, du och dealer fick ${playerscore} poäng`)
+}
 }
