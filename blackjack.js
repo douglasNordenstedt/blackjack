@@ -1,4 +1,25 @@
 
+let playagain = "ja";
+let bettotal = 100;
+let skiterbjörneniskogen = true;
+while(playagain == "ja"){
+
+let bet = 101;
+while(bet>bettotal || bet<0 || Number.isInteger(bet) == false){
+bet = parseInt(prompt(`ny omgång blackjack
+vad vill du satsa?
+
+saldo: ${bettotal}$$$`));
+if(bet>bettotal){
+    alert(`du kan inte satsa mer än vad du har dummy`)
+}
+if(bet<0){
+    alert(`du kan inte satsa negativt dummy`)
+}
+}
+
+while(skiterbjörneniskogen = true){
+
 const färg = ["Hjärter", "Spader", "Ruter", "Klöver"];
 const valör = ["A" ,"2" ,"3","4", "5", "6" ,"7" ,"8","9","10","Knekt", "Dam", "Kung"];
 
@@ -102,15 +123,17 @@ if(enemyacesinhand>0 && enemyscore>21){
 //alla förberedelser klara
 
 let choice = "h";
-while(choice == "h" && playerscore != 21){
+while(choice == "h" && playerscore < 21){
 choice = prompt(
     `dina kort är ${allcardinfo}
 din poäng är ${playerscore}
 
-motståndarens kort är ${enemycard} och ${enemycardx}
-motståndarens poäng är ${enemyscore}
+motståndarens kort är ${enemycard} och *********
+motståndarens poäng är *********
 
-hit or stand? (h/s)`
+hit or stand? (h/s)
+
+insats: ${bet}$$$`
 )
 
 if(choice != "h"){
@@ -118,7 +141,7 @@ if(choice != "h"){
 }
 
 kortinfo.push(randomCard());
-allcardinfo.push(" " + kortinfo[0][0] + kortinfo[0][1])
+allcardinfo.push(" " + kortinfo[0][0] + kortinfo[0][1]);
 
 playerscore += (kortinfo[0][2]);
 
@@ -130,21 +153,40 @@ acesinhand -= 1;
 kortinfo = [];
 
 if(playerscore>21){
+    bettotal -= bet;
     alert(`bust (${playerscore} poäng)
-    ${allcardinfo}`);
+${allcardinfo}
+
+insats: ${bet}$$$
+förlust: -${bet}$$$
+saldo: ${bettotal}$$$`);
 };
+};
+
+if(playerscore>21){
+    break;
 }
 
 
+
+
+
 if(playerscore == 21 && enemyscore != 21){
+    bettotal += bet;
     alert(`du vann emot ${allenemycardinfo} (${enemyscore}poäng)
-    ${allcardinfo} (21 poäng)`);
+ ${allcardinfo} (21 poäng)
+ 
+insats: ${bet}$$$
+vinst: +${bet}$$$
+saldo: ${bettotal}$$$`);
+
+break;
 };
 
 
 while(enemyscore<17){
     kortinfo.push(randomCard());
-    allenemycardinfo.push(" " + kortinfo[0][0] + kortinfo[0][1])
+    allenemycardinfo.push(" " + kortinfo[0][0] + kortinfo[0][1]);
     enemyscore += (kortinfo[0][2]);
 
     if(enemyacesinhand>0 && enemyscore>21){
@@ -156,27 +198,68 @@ while(enemyscore<17){
 };
 
 if(enemyscore == 21 && playerscore != 21){
+    bettotal -= bet;
     alert(`dealer vann direkt med ${enemycard} och ${enemycardx} (21 poäng)
-${allcardinfo} (${playerscore} poäng)`)
+${allcardinfo} (${playerscore} poäng)
+
+insats: ${bet}$$$
+förlust: -${bet}$$$
+saldo: ${bettotal}$$$`);
+
+break;
 };
 
 if(enemyscore>21){
+    bettotal += bet;
     alert(`dealer busted ${allenemycardinfo}(${enemyscore} poäng)
-du vann med ${allcardinfo} (${playerscore} poäng)`);
+du vann med ${allcardinfo} (${playerscore} poäng)
+
+insats: ${bet}$$$
+vinst: +${bet}$$$
+saldo: ${bettotal}$$$`);
+
+break;
 };
 
 if (enemyscore>playerscore){
+    bettotal -= bet;
     alert(`dealer vann med ${enemyscore} poäng (${allenemycardinfo})
-emot ${playerscore} poäng(${allcardinfo})`)
+emot ${playerscore} poäng(${allcardinfo})
+
+insats: ${bet}$$$
+förlust: -${bet}$$$
+saldo: ${bettotal}$$$`);
+
+break;
 };
 
 if (playerscore>enemyscore){
+    bettotal += bet;
     alert(`du vann med ${playerscore} poäng emot ${allenemycardinfo} (${enemyscore} poäng)
- ${allcardinfo}`)
+ ${allcardinfo}
+ 
+insats: ${bet}$$$
+vinst: +${bet}$$$
+saldo: ${bettotal}$$$`);
+
+break;
 };
 
 if (playerscore==enemyscore){
     alert(`lika, du och dealer (${allenemycardinfo}) fick ${playerscore} poäng
-${allcardinfo}`)
-};
+${allcardinfo}
 
+insats: ${bet}$$$
+vinst: +0$$$
+saldo: ${bettotal}$$$`);
+
+break;
+};
+}
+if(bettotal<=0){
+    alert(`du fick slut på pengar`)
+    break;
+}
+playagain = prompt(`fortsätt spela?(ja/nej)`);
+};
+alert(`hejdå :]`);
