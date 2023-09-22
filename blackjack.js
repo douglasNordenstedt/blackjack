@@ -1,10 +1,10 @@
-
 let playagain = "ja";
 let bettotal = 100;
 let skiterbjörneniskogen = true;
 while(playagain == "ja"){
+    
+    let bet = -1;
 
-let bet = 101;
 while(bet>bettotal || bet<0 || Number.isInteger(bet) == false){
 bet = parseInt(prompt(`ny omgång blackjack
 vad vill du satsa?
