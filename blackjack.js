@@ -2,7 +2,7 @@ let playagain = "ja";
 let bettotal = 100;
 let skiterbjörneniskogen = true;
 while(playagain == "ja"){
-    
+
     let bet = -1;
 
 while(bet>bettotal || bet<0 || Number.isInteger(bet) == false){
@@ -199,7 +199,7 @@ while(enemyscore<17){
 
 if(enemyscore == 21 && playerscore != 21){
     bettotal -= bet;
-    alert(`dealer vann direkt med ${enemycard} och ${enemycardx} (21 poäng)
+    alert(`dealer vann med ${allenemycardinfo} (21 poäng)
 ${allcardinfo} (${playerscore} poäng)
 
 insats: ${bet}$$$
@@ -236,8 +236,8 @@ break;
 if (playerscore>enemyscore){
     bettotal += bet;
     alert(`du vann med ${playerscore} poäng emot ${allenemycardinfo} (${enemyscore} poäng)
- ${allcardinfo}
- 
+${allcardinfo}
+
 insats: ${bet}$$$
 vinst: +${bet}$$$
 saldo: ${bettotal}$$$`);
