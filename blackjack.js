@@ -1,6 +1,5 @@
 let playagain = "ja";
 let bettotal = 100;
-let skiterbjörneniskogen = true;
 while(playagain == "ja"){
 
     let bet = -1;
@@ -18,7 +17,7 @@ if(bet<0){
 }
 }
 
-while(skiterbjörneniskogen = true){
+while(true){
 
 const färg = ["Hjärter", "Spader", "Ruter", "Klöver"];
 const valör = ["A" ,"2" ,"3","4", "5", "6" ,"7" ,"8","9","10","Knekt", "Dam", "Kung"];
